@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шифратор Цезаря UA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-wrapper">
+      
+        <img src="image/Cesar.png" class="top-logo" alt="Цезар">
+
+        <div class="disk-container">
+            <svg viewBox="0 0 400 400">
+                <g id="outer-group">
+                    <circle cx="200" cy="200" r="185" class="border" />
+                    <g id="outer-content"></g>
+                </g>
+                <circle cx="200"cy="200" r="135" class="border" />
+                <g id="inner-content"></g>
+                <circle cx="200" cy="200" r="45" class="border" />
+                <text x="200" y="188" class="shift-label" text-anchor="middle">ЗСУВ</text>
+                <text x="200" y="220" id="shift-display" class="shift-val" text-anchor="middle">0</text>
+            </svg>
+        </div>
+
+        <div class="controls">
+            <button class="btn-ctrl" onclick="rotateDisk(-1)"><svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>
+            <button class="btn-ctrl" onclick="resetDisk()">0</button>
+            <button class="btn-ctrl" onclick="rotateDisk(1)"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg></button>
+        </div>
+
+        <div class="text-fields">
+            <div class="field-group">
+                <label>Розкодовано (Внутрішній диск)</label>
+                <textarea id="input-text" placeholder="Звичайний текст..." oninput="onUserType('input')"></textarea>
+                <button id="clear-input-btn" class="icon-btn clear" onclick="clearEverything()">✕</button>
+                <div class="action-btns">
+                    <button class="icon-btn" onclick="copyText('input-text', this)">Копіювати</button>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label>Закодовано (Зовнішній диск)</label>
+                <textarea id="output-text" placeholder="Закодований текст..." oninput="onUserType('output')"></textarea>
+                <button id="clear-output-btn" class="icon-btn clear" onclick="clearEverything()">✕</button>
+                <div class="action-btns">
+                    <button class="icon-btn" onclick="copyText('output-text', this)">Копіювати</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="wiki-section">
+            <div class="wiki-divider"></div>
+            <div class="wiki-title">Як працює Диск Цезаря?</div>
+            <div class="wiki-content">
+                <p>
+                    <strong>Кодувальний диск Цезаря</strong> названо на честь Юлія Цезаря, який у давнину 
+                    використовував простий спосіб шифрування — заміну літер зі зсувом — для передачі таємних повідомлень.
+                </p>
+
+                <h4>Принцип роботи</h4>
+                <p>
+                    Диск складається з двох обертових дисків з літерами.
+                    <strong>Внутрішній диск</strong> — це відкритий алфавіт, 
+                    а <strong>зовнішній диск</strong> — кодувальний.
+                    Коли зовнішній диск повертають на певну кількість літер, утворюється <strong>ключ шифрування</strong>.
+                    Кожна літера відкритого тексту замінюється літерою, яка стоїть навпроти неї на кодувальному диску.
+                </p>
+
+                <h4>Приклад кодування (українська абетка)</h4>
+                <p>
+                    Візьмемо слово <strong>«ЦЕЗАР»</strong>. Оберемо <strong>зсув 7</strong> — це означає, що кожну літеру замінюємо на ту, що стоїть 
+                    <strong>на 7 букв далі в абетці</strong>.
+                </p>
+                <ul>
+                    <li>Ц → П</li>
+                    <li>Е → Я</li>
+                    <li>З → В</li>
+                    <li>А → Ц</li>
+                    <li>Р → Й</li>
+                </ul>
+                <p>У результаті слово <strong>«ЦЕЗАР»</strong> перетворюється на <strong>«ПЯВЦЙ»</strong>.</p>
+
+                <h4>Як працювати з програмою ?</h4>
+                <p>
+                    <h4>Кодуємо:</h4>
+                    Введи текст у поле <strong>«Розкодовано»</strong>. Обираючи потрібний зсув, ти одразу отримаєш його в закодованому вигляді. 
+                    Програма замінить літеру внутрішнього диска на ту, що стоїть навпроти на зовнішньому диску.
+                </p>
+
+                <p>
+                    <h4>Розкодовуємо:</h4>
+                    Встав зашифрований текст у поле <strong>«Закодовано»</strong> і крути диск стрілками, поки у верхньому полі не з’являться зрозумілі слова.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js" defer></script>
+</body>
+</html>

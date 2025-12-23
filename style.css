@@ -1,0 +1,126 @@
+:root {
+    --bg-color: rgb(230, 240, 250);
+    --accent-color: #000000;
+    --red-color: #e53e3e;
+    --container-max-width: 600px;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--bg-color);
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    padding-bottom: 50px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+.main-wrapper {
+    width: 100%;
+    max-width: var(--container-max-width);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h2 { margin: 10px 0 20px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900; font-size: 1.4rem; text-align: center; }
+
+.disk-container { width: 100%; max-width: 480px; aspect-ratio: 1 / 1; 
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+}
+svg {
+    width: 100%;
+    height: 100%;
+    shape-rendering: geometricPrecision;
+}
+
+#outer-group { transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.2); transform-origin: 200px 200px; }
+.letter { font-weight: 800; fill: var(--accent-color); text-anchor: middle; dominant-baseline: middle; user-select: none; }
+.letter.red { fill: var(--red-color); }
+.line { stroke: var(--accent-color); stroke-width: 1; stroke-opacity: 0.2; }
+.border { fill: none; stroke: var(--accent-color); stroke-width: 2; }
+
+.controls {
+    width: 100%; 
+    max-width: 480px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    margin: 25px 0;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.btn-ctrl {
+    width: 65px; height: 55px;
+    background: transparent; border: 2px solid var(--accent-color);
+    border-radius: 12px; cursor: pointer;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 22px; font-weight: 900; color: var(--accent-color);
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+.btn-ctrl:active { transform: scale(0.9); background: rgba(0,0,0,0.05); }
+.btn-ctrl svg { fill: var(--accent-color); width: 28px; }
+
+.text-fields { width: 100%; max-width: 500px; display: flex; flex-direction: column; gap: 20px; }
+.field-group { display: flex; flex-direction: column; gap: 8px; position: relative; }
+label { font-size: 11px; font-weight: 900; text-transform: uppercase; color: var(--accent-color); margin-left: 5px; }
+
+textarea {
+    width: 100%;
+    min-height: 85px;
+    max-height: 350px;
+    background: #fff; border: 2px solid var(--accent-color);
+    border-radius: 14px; padding: 15px 45px 45px 15px;
+    box-sizing: border-box; font-family: inherit; font-size: 16px;
+    color: var(--accent-color); resize: none; outline: none;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+textarea:focus { border-color: var(--red-color); }
+
+.action-btns { position: absolute; right: 10px; bottom: 10px; display: flex; gap: 8px; }
+.icon-btn {
+    background: var(--accent-color); color: white;
+    border: none; border-radius: 8px; padding: 6px 12px;
+    font-size: 11px; font-weight: bold; cursor: pointer;
+    text-transform: uppercase;
+}
+.icon-btn.clear { position: absolute; right: 10px; top: 35px; background: #fff; color: var(--accent-color); padding: 4px 8px; border: 1px solid var(--accent-color); border-radius: 5px; }
+
+.shift-val { font-size: 32px; font-weight: 900; fill: var(--accent-color); }
+.shift-label { font-size: 10px; fill: var(--accent-color); font-weight: bold; }
+ 
+.top-logo {
+   display: block;
+   width: 80%;
+   max-width: 200px;
+   margin: 0 auto 20px;
+   height: auto;
+   mix-blend-mode: multiply;
+}
+
+.wiki-section {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 50px;
+    color: var(--accent-color);
+}
+.wiki-divider { height: 1px; background: var(--accent-color); margin-bottom: 30px; }
+.wiki-title { font-size: 1.1rem; font-weight: 900; text-transform: uppercase; text-align: center; margin-bottom: 20px; letter-spacing: 1px; }
+.wiki-content { background: #fff; padding: 25px; border-radius: 18px; border: 2px solid var(--accent-color);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+.wiki-content p { margin: 0 0 15px; font-size: 15px; line-height: 1.6; }
+.wiki-content ul { margin: 0 0 15px; padding-left: 20px; }
+.wiki-content li { margin-bottom: 8px; font-size: 14px; }
+.wiki-content strong { color: var(--red-color); }
