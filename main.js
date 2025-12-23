@@ -14,7 +14,7 @@ let cumulativeAngle = 0;
 let lastEditedSource = 'input'; 
 
 // --- INITIALIZATION ---
-function init() {
+function performInitialSetup() {
     const outer = document.getElementById('outer-content');
     const inner = document.getElementById('inner-content');
     alpha.forEach((char, i) => {
@@ -133,5 +133,8 @@ function autoResize(textarea) {
 }
 
 // --- START ---
-init();
+// Wait for the document and fonts to be fully loaded before initializing
+document.fonts.ready.then(() => {
+    performInitialSetup();
+});
 

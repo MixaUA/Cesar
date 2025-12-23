@@ -1,6 +1,6 @@
 :root {
-    --bg-color: rgb(230, 240, 250);
-    --accent-color: #000000;
+    --bg-color: #f0f2f5;
+    --accent-color: #2d3748;
     --red-color: #e53e3e;
     --container-max-width: 600px;
 }
@@ -124,3 +124,34 @@ textarea:focus { border-color: var(--red-color); }
 .wiki-content ul { margin: 0 0 15px; padding-left: 20px; }
 .wiki-content li { margin-bottom: 8px; font-size: 14px; }
 .wiki-content strong { color: var(--red-color); }
+
+/* PWA Close Button */
+.close-app-btn {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    background: rgba(0,0,0,0.1);
+    border: none;
+    border-radius: 50%;
+    color: var(--accent-color);
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.close-app-btn:hover {
+    background: rgba(0,0,0,0.2);
+}
+
+/* Show the button only when in standalone (PWA) mode */
+@media (display-mode: standalone) {
+    .close-app-btn {
+        display: block;
+    }
+}
