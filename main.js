@@ -138,3 +138,10 @@ document.fonts.ready.then(() => {
     performInitialSetup();
 });
 
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const yearSpan = document.getElementById('copyright-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+});
